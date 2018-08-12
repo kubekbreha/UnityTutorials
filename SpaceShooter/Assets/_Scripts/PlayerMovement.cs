@@ -8,7 +8,24 @@ public class PlayerMovement : MonoBehaviour {
     public float tilt;
     public Boundary boundary;
 
-	void FixedUpdate () {
+    private float nextFire;
+
+    public float fireRate;
+    public GameObject shot;
+    public Transform shotSpawn;
+
+
+
+    private void Update()
+    {
+        if(Input.GetButton("Fire1") && Time.time > nextFire){
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        }
+    }
+
+
+    void FixedUpdate () {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
