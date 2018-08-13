@@ -10,11 +10,18 @@ public class DestroyByContact : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if(other.tag == "Asteroid"){
+            return;
+        }
+
         Instantiate(explosion, transform.position, transform.rotation);
+
         if (other.tag == "Player")
         {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
         }
+
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
