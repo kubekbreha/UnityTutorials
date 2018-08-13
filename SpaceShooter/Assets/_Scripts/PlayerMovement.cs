@@ -8,12 +8,11 @@ public class PlayerMovement : MonoBehaviour {
     public float tilt;
     public Boundary boundary;
 
-    private float nextFire;
-
     public float fireRate;
     public GameObject shot;
     public Transform shotSpawn;
 
+    private float nextFire;
 
 
     private void Update()
@@ -23,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
     }
+
 
 
     void FixedUpdate () {
@@ -50,5 +50,4 @@ public class PlayerMovement : MonoBehaviour {
 [System.Serializable]
 public class Boundary{
     public float xMin, xMax, zMin, zMax;
-
 }
